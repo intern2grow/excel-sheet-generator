@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Sheet Generator</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form">
+        <h1>Excel Sheet Generator</h1>
+        <input type="number" class="rows" placeholder="Enter number of rows">
+        <input type="number" class="columns" placeholder="Enter number of columns">
+        <div class="btns">
+            <button onclick="generateTable()">Generate</button>
+            <button onclick="ExportToExcel('xlsx')">Export</button>
+        </div>
+    </div>
+    <div class="table">
+        <table cellspacing="6px">
+            <tbody class="sheet-body"></tbody>
+        </table>
+    </div>
+</body>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script src="./script.js"></script>
+</html>
