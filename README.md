@@ -1,7 +1,7 @@
 # excel-sheet-generator
 
-hello there, your task is to use sweetalert.js to display an alert when the user clicks "generate" while the fields are empty, and when the user clicks "export" but there is no generated table to be exported.
+Problem:
+I am developing a web application that allows users to generate tables based on data inputted in a form. The user can then export the table as a CSV file. However, I want to ensure that the user inputs data before generating the table, and that the table is generated before allowing the user to export it.
 
-fork the repository and start working on it.
-
-best of luck.
+Solve:
+I am using SweetAlert.js to display the appropriate alert messages
