@@ -5,3 +5,9 @@ hello there, your task is to use sweetalert.js to display an alert when the user
 fork the repository and start working on it.
 
 best of luck.
+
+
+the changes i did 
+1.add sweetalert library to html file
+2. add function make alert if the input value isnot number or empty when click the generate button
+3. add function make alert if the input values lower than 1 when click the export button
