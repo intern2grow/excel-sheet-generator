@@ -59,7 +59,7 @@ const generateTable = () => {
 
 const ExportToExcel = (type, fn, dl) => {
   if (!tableExists) {
-    // swal("Error", "Please generate a table before exporting!", "error");
+    swal("Error", "Please generate a table before exporting!", "error");
     return;
   }
   var elt = table;
