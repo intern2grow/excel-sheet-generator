@@ -5,6 +5,14 @@ tableExists = false
 
 const generateTable = () => {
     let rowsNumber = parseInt(rows.value), columnsNumber = parseInt(columns.value)
+if (isNaN(rowsNumber && columnsNumber)) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Please Enter your row and column',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    })
+      }
     table.innerHTML = ""
     for(let i=0; i<rowsNumber; i++){
         var tableRow = ""
@@ -19,8 +27,15 @@ const generateTable = () => {
 }
 
 const ExportToExcel = (type, fn, dl) => {
-    if(!tableExists){
-        return
+
+     if(tableExists === false){
+        Swal.fire({
+            title: 'Error!',
+            text: 'No table to export',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    return;
     }
     var elt = table
     var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" })
