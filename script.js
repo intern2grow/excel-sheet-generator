@@ -4,7 +4,15 @@ columns = document.getElementsByClassName("columns")[0]
 tableExists = false
 
 const generateTable = () => {
-    let rowsNumber = parseInt(rows.value), columnsNumber = parseInt(columns.value)
+
+    if (rows.value==''&&columns.value=='') {
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fields cannot be empty!'
+        });
+    } else {
+        let rowsNumber = parseInt(rows.value), columnsNumber = parseInt(columns.value)
     table.innerHTML = ""
     for(let i=0; i<rowsNumber; i++){
         var tableRow = ""
@@ -16,14 +24,27 @@ const generateTable = () => {
     if(rowsNumber>0 && columnsNumber>0){
         tableExists = true
     }
+    }
+    
 }
 
+
 const ExportToExcel = (type, fn, dl) => {
-    if(!tableExists){
-        return
+
+    if (tableExists==true) {
+        if(!tableExists){
+            return
+        }
+        var elt = table
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" })
+        return dl ? XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' })
+            : XLSX.writeFile(wb, fn || ('MyNewSheet.' + (type || 'xlsx')))    
+        } else {
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No table to export!'
+        });
     }
-    var elt = table
-    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" })
-    return dl ? XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' })
-        : XLSX.writeFile(wb, fn || ('MyNewSheet.' + (type || 'xlsx')))
-}
+    
+};
